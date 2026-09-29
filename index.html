@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Елена Савельева — репетитор по химии, ЕГЭ и ОГЭ онлайн</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500;600&family=Caveat:wght@500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   CLEAN & UNIFIED DESIGN SYSTEM (No !important hacks)
+   ========================================================= */
+:root {
+  --navy: #1b2266; --soft: #5a6384; --gold: #f5c22b;
+  box-sizing: border-box; color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --bg: #ffffff; --bg-alt: #f2f2f2; --ink: #1d1d1d; --muted: #7c7c7c;
+  --blue: #4a9fc2; --orange: #d97b14; --orange-hover: #c46c0d;
+  --head: #46383a; --foot: #46383a; --on-dark: #f3ebe6; --card: #ffffff; --line: #e6e6e6;
+  --shadow: 0 4px 18px rgba(0,0,0,.08);
+  --body-font: "Montserrat", "Segoe UI", Roboto, Arial, sans-serif;
+  --btn-font: "Cabin", "Montserrat", "Segoe UI", Arial, sans-serif;
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 8px); }
+body { margin: 0; background: #fff; color: var(--ink); font-family: var(--body-font); font-weight: 300; font-size: 13px; line-height: 1.35; -webkit-font-smoothing: antialiased; }
+img, svg { max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+.wrap { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 16px; }
+
+/* Общий стиль для всех описательных текстов */
+.five p, .step p, .fact p, .svc p, .les-intro, .gift-panel p, .c-info p, .card p, .rev p, .panel.peach .stat small, #otzyvy .stat small {
+  font-size: 13px; line-height: 1.32; margin-top: 5px; margin-bottom: 0; font-weight: 500; color: #38405e; -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* header (Верхняя шапка) */
+.top { background: var(--head); color: var(--on-dark); }
+.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 50px; padding-top: 10px; padding-bottom: 5px; }
+.logo { display: block; flex: none; }
+.logo svg { height: 25px; width: auto; display: block; }
+.top-right { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 2px; font-size: 12.5px; font-weight: 400; }
+.nav a { padding: 1px 6px; position: relative; opacity: .85; line-height: 1.1; }
+.nav a:hover { opacity: 1; color: var(--gold); }
+.nav a+a::before { content: ""; position: absolute; left: -2px; top: 50%; width: 3px; height: 3px; border-radius: 50%; background: currentColor; opacity: .6; }
+.contact-row { display: flex; align-items: center; gap: 10px; }
+.tel { font-weight: 500; font-size: 13.5px; line-height: 1.1; display: inline-flex; align-items: center; gap: 8px; }
+.soc-sq { display: flex; gap: 6px; }
+.soc-sq a { width: 23px; height: 23px; border-radius: 4px; display: grid; place-items: center; color: #fff; font: 600 10px/1 var(--body-font); }
+.pill { background: #fff; color: #222; border-radius: 4px; padding: 4px 8px; font-size: 9.5px; font-weight: 500; }
+.pill:hover { color: var(--blue); }
+.burger { display: none; background: none; border: 1px solid currentColor; border-radius: 6px; padding: 5.3px 10px; color: inherit; font: 500 16.8px var(--body-font); cursor: pointer; }
+
+/* hero */
+.hero { position: relative; min-height: 150px; display: grid; place-items: center; text-align: center; color: #fff; overflow: hidden; background: #2b2f45; }
+.hero .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block; }
+.hero::after { content: none; }
+.hero .in { position: relative; z-index: 1; padding: 9px 16px; }
+.hero h1 { text-shadow: 0 1px 2px rgba(0,0,0,.6), 0 2px 14px rgba(0,0,0,.65), 0 0 30px rgba(0,0,0,.35); margin: 0; font-weight: 400; font-size: clamp(20px, 2.7vw, 29px); line-height: 1.08; letter-spacing: -.01em; }
+.hero .sub { margin: 4px 0 0; font-weight: 600; font-size: clamp(16px, 2vw, 21px); color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.6), 0 2px 14px rgba(0,0,0,.65), 0 0 30px rgba(0,0,0,.35); }
+.hero .sub span { color: #fff; }
+.hero .rule { width: 48px; height: 2px; background: #fff; margin: 5px auto; box-shadow: 0 1px 6px rgba(0,0,0,.5); }
+.hero .lead { color: #fff; margin: 0 auto 5px; font-size: 12.5px; font-weight: 500; max-width: 820px; text-shadow: 0 1px 2px rgba(0,0,0,.6), 0 2px 14px rgba(0,0,0,.65), 0 0 30px rgba(0,0,0,.35); }
+.hero small { display: block; margin-top: 3px; font-size: 10px; font-weight: 500; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.6), 0 2px 14px rgba(0,0,0,.65), 0 0 30px rgba(0,0,0,.35); }
+
+/* buttons */
+.btn { display: inline-block; border: 0; border-radius: 4px; background: var(--orange); color: #fff; font: 600 12px/1 var(--btn-font); padding: 8px 18px; cursor: pointer; transition: background .15s; }
+.btn:hover { background: var(--orange-hover); }
+.btn.sm { padding: 7px 16px; font-size: 11px; }
+.btn.btn-green { background: #0eb23c; }
+.btn.btn-green:hover { background: #0b9633; }
+
+/* sections common */
+section { padding: 7px 0; background: #fdf9f2; }
+h2.title { margin: 0; text-align: center; font-weight: 400; font-size: 20px; line-height: 1.2; }
+h2.title .accent, .accent { color: var(--blue); }
+.subtitle { margin: 3px 0 0; text-align: center; color: var(--muted); font-weight: 500; font-size: 13px; }
+.rule { width: 70px; height: 2px; background: var(--blue); margin: 14px auto 0; }
+
+.appr { --navy: #1b2266; --soft: #5a6384; --gold: #f5c22b; background: #fdf9f2; padding: 10px 0 11px; }
+.ah { margin: 0; font-weight: 800; font-size: clamp(17px, 2.15vw, 22px); line-height: 1.05; color: var(--navy); letter-spacing: -.01em; }
+.ah.m { font-size: 22px; }
+.uline { display: none; }
+.appr-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.note { position: relative; display: flex; align-items: center; gap: 5px; flex: none; padding-right: 0; }
+.note .hand { font: 600 22px/1 "Caveat", cursive; color: #2a5bd7; transform: rotate(-8deg); margin: 0; max-width: none; }
+.note .hand svg { display: block; width: 130px; height: 17px; margin-top: 1px; }
+.note .mol { width: 48px; height: 48px; flex: none; }
+
+/* Colors */
+.c-purple{background:#e6dcfb;color:#5a2fd0}.c-green{background:#d3f1e2;color:#0f3f3a}.c-blue{background:#d3e5fc;color:#1b4fd0}
+.c-orange{background:#fde1c5;color:#e5531f}.c-lilac{background:#f0dcf9;color:#8a2fbf}.c-gold{background:#fbe8a8;color:#e8a20c}
+.c-blue2{background:#c9defb;color:#1c3bd0}.c-purple2{background:#e4d8fa;color:#6a2fd0}.c-green2{background:#d3f0e0;color:#12403a}
+
+/* about */
+#obo-mne { padding-top: 9px; }
+#obo-mne .wrap { display: grid; grid-template-columns: 24% 1fr; column-gap: 12px; row-gap: 5px; }
+#obo-mne .appr-top { grid-column: 1 / -1; }
+.about { grid-column: 1 / -1; display: grid; grid-template-columns: 24% 1fr; gap: 10px; margin-top: 2px; min-height: 170px; align-items: stretch; }
+.about .photo { display: flex; flex-direction: column; border-radius: 13px; overflow: hidden; box-shadow: 0 6px 22px rgba(30,40,100,.10); background: #fdf1de; }
+.about .photo .ph { aspect-ratio: 16/10; flex: none; position: relative; background: var(--bg-alt); }
+.about .photo .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.about .cap { background: #fdf1de; color: var(--navy); padding: 8px 10px; font-weight: 600; font-size: 11px; line-height: 1.25; flex: 1; display: flex; align-items: center; }
+.about .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 0; }
+.fact { display: flex; flex-direction: row; gap: 7px; align-items: flex-start; background: #fff; border-radius: 10px; padding: 7px 8px 6px; box-shadow: 0 1px 7px rgba(30,60,140,.05); min-height: 0; }
+.fact .ai { margin: 0; flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; }
+.fact .ai svg { width: 52%; height: 52%; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.fact h3 { margin: 0 0 2px; font-weight: 700; font-size: 13px; line-height: 1.15; color: var(--navy); }
+
+/* approach block (Преимущества) */
+#preimushchestva { padding: 7px 0; }
+#preimushchestva .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+#preimushchestva .appr-top { grid-column: 1 / -1; }
+#preimushchestva .five { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin: 0; text-align: center; }
+#preimushchestva .five h3 { font-size: 13px; margin: 3px 0 2px; line-height: 1.15; font-weight: 700; color: var(--navy); }
+.ai { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; margin: 0 auto 4px; }
+.ai svg { width: 52%; height: 52%; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.ai svg.head-icon { width: auto; height: 66%; fill: currentColor; stroke: none; }
+
+.panel { border-radius: 12px; padding: 11px 12px; margin: 0; }
+.panel.blue { background: #e8f1fd; }
+.panel.peach { position: relative; background: #fdf1de; overflow: hidden; padding-right: 12px; }
+#preimushchestva .panel.blue { grid-column: 1; }
+#preimushchestva .panel.peach { grid-column: 2; padding-right: 12px; }
+
+.p-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 7px; }
+.p-head .ah { font-size: 15px; }
+.note2 { display: flex; align-items: flex-start; gap: 3px; flex: none; margin-top: 0; }
+.note2 .hand { font: 600 15px/1.05 "Caveat", cursive; color: #2a5bd7; transform: rotate(-7deg); max-width: 135px; }
+.note2 svg { width: 50px; height: 31px; flex: none; margin-top: 3px; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; align-items: center; }
+.steps .arrow { display: none; }
+.step { background: #fff; border-radius: 9px; padding: 8px; box-shadow: 0 2px 10px rgba(30,60,140,.06); height: 100%; }
+.step h3 { margin: 0 0 3px; font-weight: 700; font-size: 13.5px; line-height: 1.15; color: var(--navy); }
+
+.res-head { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; }
+.res-head .ai { margin: 0; width: 43px; height: 43px; flex: none; }
+.res-head .ah { font-size: 15px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); }
+.stat { padding: 0 7px; }
+.stat + .stat { border-left: 1px solid #e6d9bd; }
+.stat .row { display: flex; align-items: baseline; gap: 3px; flex-wrap: wrap; }
+.stat .row .n { font-weight: 800; font-size: 30px; line-height: 1; }
+.stat .row span { font-weight: 500; font-size: 12px; color: var(--soft); }
+.stat strong { display: block; margin-top: 4px; font-weight: 700; font-size: 15.3px; line-height: 1.3; color: var(--navy); }
+.stat .inst { width: 22px; height: 22px; color: #2a5bd7; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; display: block; margin-bottom: 2px; }
+.illus { position: absolute; right: 0; bottom: 0; width: 105px; height: auto; display: block; }
+
+/* lessons */
+#uroki { padding: 7px 0; }
+#uroki .wrap { display: grid; gap: 7px; }
+#uroki .appr-top { margin-bottom: 0; }
+#uroki .appr-top + div { display: block; margin-top: 0; }
+.les-intro { margin: 0; max-width: 800px; flex: 1; font-size: 13.5px; line-height: 1.38; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 12px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; background: #fdf1de; border-radius: 999px; padding: 6px 14px; font-weight: 600; font-size: 13px; color: var(--navy); white-space: nowrap; }
+.chip i { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: block; }
+#uroki .panel { padding: 9px; border-radius: 12px; }
+#uroki .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+
+/* reviews */
+#otzyvy { padding: 7px 0; }
+#otzyvy .wrap { display: grid; gap: 6px; }
+.panel.warm { background: #fdf1de; }
+#otzyvy .rev-panel { padding: 10px 12px; margin-top: -20px; }
+#otzyvy .rev-panel .stats { grid-template-columns: repeat(3, 1fr); }
+#otzyvy .rev-panel .stat strong { font-size: 13px; line-height: 1.25; margin: 4px 0 2px; }
+#otzyvy .rev-cta { position: relative; z-index: 20; transform: translateY(-28px); margin-top: 5px; }
+#otzyvy .rev-cta .btn { position: relative; z-index: 21; pointer-events: auto; float: right; margin-top: -30px; }
+#otzyvy a, #otzyvy button { position: relative; z-index: 20; transform: translateY(-18px); }
+
+/* services */
+#uslugi { padding: 7px 0; }
+#uslugi .wrap { display: grid; gap: 7px; row-gap: 0; }
+#uslugi .panel { padding: 9px; border-radius: 12px; }
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.svc { background: #fff; border-radius: 9px; padding: 8px 10px; box-shadow: 0 2px 10px rgba(30,60,140,.06); display: grid; grid-template-columns: 34px 1fr; column-gap: 7px; align-items: stretch; grid-template-rows: auto 1fr auto auto; }
+.svc .ai { grid-row: 1 / 4; width: 34px; height: 34px; margin: 0; align-self: start; flex: none; }
+.svc h3 { margin: 1px 0 3px; font-weight: 700; font-size: 14px; line-height: 1.15; color: var(--navy); }
+.svc .price { margin: 5px 0 4px; font-weight: 800; font-size: 15px; color: var(--navy); }
+.svc .price span { font-weight: 500; font-size: 12px; color: var(--soft); }
+.svc .btn { grid-column: 2; width: 100%; text-align: center; margin: 0; }
+
+/* final cta */
+.final-cta .panel.blue { text-align: center; padding: 28px 22px; }
+.final-cta .panel.blue .ah { margin: 0 0 16px; }
+.final-cta .panel.blue .les-intro { margin: 0 0 20px; font-size: 15px; line-height: 1.4; max-width: none; }
+
+/* footer */
+.foot-main { background: var(--foot); color: var(--on-dark); padding: 29px 0 32px; }
+.foot-main .wrap { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 32px; }
+.foot-main .brand svg { height: 58px; width: auto; display: block; }
+.foot-main .brand p { margin: 2px 0 0; font-weight: 500; font-size: 13.3px; line-height: 1.5; }
+.foot-main h4 { margin: 8px 0 16px; font-weight: 500; font-size: 12.7px; line-height: 1.25; text-transform: uppercase; }
+.foot-main a { display: block; font-size: 12px; font-weight: 500; text-transform: uppercase; opacity: .75; line-height: 1.85; }
+.foot-main a:hover { opacity: 1; }
+.foot-main a.n { text-transform: none; }
+
+/* dialogs */
+dialog { border: 0; border-radius: 10px; padding: 0; width: min(420px, calc(100% - 32px)); background: var(--card); color: var(--ink); box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+dialog::backdrop { background: rgba(0,0,0,.55); }
+#rev-dlg { width: min(820px, calc(100% - 24px)); height: min(92vh, calc(100dvh - 24px)); max-width: none; max-height: none; overflow: hidden; }
+#rev-dlg[open] { display: flex; flex-direction: column; }
+.rev-bar { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px 14px 22px; border-bottom: 1px solid var(--line); background: var(--card); }
+.rev-bar h3 { margin: 0; font-weight: 600; font-size: 18px; color: var(--navy); }
+.rev-x { flex: none; width: 38px; height: 38px; border: 0; border-radius: 50%; background: var(--bg-alt); color: var(--ink); font: 400 26px/1 var(--body-font); cursor: pointer; display: grid; place-items: center; padding: 0 0 3px; }
+.rev-x:hover { background: #e4e4e4; }
+.rev-scroll { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; background: #fff; -webkit-overflow-scrolling: touch; }
+.rev-scroll img { display: block; width: 100%; height: auto; }
+.dlg { padding: 28px 26px 26px; }
+.dlg h3 { margin: 0 0 6px; font-weight: 500; font-size: 19.8px; }
+.dlg .note { margin: 0 0 18px; color: var(--muted); font-size: 12.6px; }
+.dlg .phone { margin: 0 0 14px; font-size: 25.2px; font-weight: 600; line-height: 1.2; white-space: nowrap; }
+.dlg .actions { display: flex; gap: 10px; margin-top: 20px; }
+.dlg .ghost { background: none; border: 1px solid var(--line); color: var(--ink); }
+.dlg .ghost:hover { background: var(--bg-alt); }
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+  .foot-main .wrap { grid-template-columns: 1fr 1fr; }
+  #obo-mne .wrap { display: block; }
+  .about { grid-template-columns: 1fr; }
+  .about .photo .ph { aspect-ratio: 4/3; }
+  #preimushchestva .wrap { display: flex; flex-direction: column; }
+}
+
+@media (max-width: 720px) {
+  /* Header */
+  .top .wrap { padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; }
+  .logo svg { height: 29.9px; }
+  .burger { display: block; }
+  .top-right { flex: 1; flex-direction: row; flex-wrap: wrap; justify-content: flex-end; align-items: center; }
+  .nav { display: none; order: 3; width: 100%; flex-direction: column; align-items: stretch; background: var(--head); padding: 6px 0 0; font-size: 17.28px; }
+  .nav.open { display: flex; }
+  .nav a { padding: 10px 4px; border-top: 1px solid rgba(255,255,255,.14); }
+  .contact-row { gap: 10px; }
+
+  /* Base */
+  section { padding: 13px 0; }
+  .hero { min-height: 265.5px; }
+
+  /* About */
+  #obo-mne { padding-top: 18px; }
+
+  /* Advantages */
+  .five { grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 20px; }
+  .steps { grid-template-columns: 1fr; }
+  .appr-top, .p-head { flex-direction: column; align-items: flex-start; }
+  .note, .note2 { padding-right: 0; }
+  .stats { grid-template-columns: 1fr; row-gap: 22px; }
+  .stat + .stat { border-left: 0; border-top: 1px solid #e6d9bd; padding-top: 20px; }
+  .panel.peach { padding-bottom: 0; }
+  .illus { position: static; margin: 14px 0 0 auto; width: 230px; }
+
+  /* Lessons */
+  .chip { font-size: 14px; padding: 8px 16px; }
+  .chip i { width: 8px; height: 8px; }
+  #uroki .trio { grid-template-columns: 1fr; }
+
+  /* Reviews */
+  #otzyvy .rev-panel .stats { grid-template-columns: 1fr; }
+  #otzyvy .rev-panel .stat strong { font-size: 12px; margin: 2px 0 2px; }
+  #otzyvy .stat strong { font-size: 14px; }
+
+  /* Services */
+  .svc-grid { grid-template-columns: 1fr; }
+  .svc { display: flex; flex-direction: column; padding: 24px 22px 22px; }
+  .svc .ai { margin-bottom: 12px; }
+
+  /* Final CTA */
+  .final-cta .panel.blue .ah { margin-bottom: 14px; }
+  .final-cta .panel.blue .les-intro { font-size: 13px; margin-bottom: 18px; }
+
+  /* Footer */
+  .foot-main { padding: 15px 0 18px; }
+  .foot-main .wrap { grid-template-columns: 1fr; gap: 19px; }
+  .foot-main .brand p { font-size: 11.3px; line-height: 1.45; }
+  .foot-main h4 { font-size: 11.3px; margin: 4px 0 7px; }
+  .foot-main a { font-size: 10.7px; line-height: 1.7; }
+}
+
+@media (max-width: 560px) {
+  .five { grid-template-columns: 1fr 1fr; }
+  .note .mol { display: none; }
+  .contact-row .soc-sq { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+</style>
+</head>
+<body id="glavnaya">
+
+<!-- SVG library -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="flask">
+      <path d="M-15 -70 h30 v48 l45 88 q6 12 -8 12 h-104 q-14 0 -8 -12 l45 -88z" fill="#ffffff" fill-opacity=".55" stroke="#8aa3ad" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M-26 8 h52 l31 58 q4 8 -6 8 h-102 q-10 0 -6 -8z" fill="currentColor" fill-opacity=".9"/>
+      <rect x="-19" y="-74" width="38" height="8" rx="3" fill="#8aa3ad"/>
+    </g>
+    <g id="g-flasks">
+      <rect y="205" width="400" height="55" fill="#d7c2a0"/><rect y="205" width="400" height="5" fill="#b89f78"/>
+      <use href="#flask" transform="translate(95 200) scale(.7)" style="color:#e0567a"/>
+      <use href="#flask" transform="translate(305 200) scale(.75)" style="color:#3aa6d8"/>
+      <use href="#flask" transform="translate(200 205) scale(1)" style="color:#3ec49a"/>
+      <circle cx="330" cy="70" r="5" fill="#fff" fill-opacity=".6"/><circle cx="60" cy="60" r="8" fill="#fff" fill-opacity=".5"/>
+    </g>
+    <g id="g-molecule">
+      <g fill="none" stroke="#3b4550" stroke-width="7" stroke-linecap="round">
+        <path d="M70 180 L150 120 L240 150 L300 80 M240 150 L270 215 M150 120 L140 55 M70 180 L40 105"/>
+      </g>
+      <g fill="#2a323b"><circle cx="70" cy="180" r="20"/><circle cx="150" cy="120" r="24"/><circle cx="240" cy="150" r="22"/><circle cx="300" cy="80" r="18"/><circle cx="270" cy="215" r="18"/></g>
+      <g fill="#e9eef2" stroke="#3b4550" stroke-width="3"><circle cx="140" cy="55" r="13"/><circle cx="40" cy="105" r="13"/><circle cx="340" cy="150" r="10"/></g>
+      <path d="M240 150 L340 150" stroke="#3b4550" stroke-width="5"/>
+    </g>
+    <g id="g-books">
+      <rect y="0" width="400" height="260" fill="#f0e8da"/>
+      <rect y="130" width="400" height="8" fill="#b98d55"/><rect y="215" width="400" height="45" fill="#c9a06a"/>
+      <g><rect x="30" y="52" width="26" height="78" fill="#a63d40"/><rect x="58" y="42" width="22" height="88" fill="#2f5d8a"/><rect x="82" y="60" width="30" height="70" fill="#d2a03a"/><rect x="114" y="48" width="20" height="82" fill="#3c7a5a"/><rect x="136" y="66" width="28" height="64" fill="#6d4a8c"/><rect x="166" y="40" width="24" height="90" fill="#c45e2c"/><rect x="192" y="58" width="22" height="72" fill="#2f5d8a"/></g>
+      <g transform="rotate(-6 300 190)"><rect x="240" y="170" width="120" height="16" fill="#2f5d8a"/><rect x="246" y="154" width="112" height="16" fill="#a63d40"/><rect x="236" y="186" width="124" height="16" fill="#3c7a5a"/></g>
+      <rect x="230" y="60" width="140" height="70" fill="#fff" fill-opacity=".35"/>
+    </g>
+    <g id="g-board">
+      <rect width="400" height="260" fill="#e8e6dc"/>
+      <rect x="28" y="24" width="344" height="170" rx="4" fill="#2e5a4f" stroke="#a7825a" stroke-width="8"/>
+      <g fill="#f2f2ee" font-family="Montserrat,Arial,sans-serif" font-size="19.8" opacity=".9">
+        <text x="52" y="70">2H₂ + O₂ → 2H₂O</text><text x="52" y="110">NaCl ⇌ Na⁺ + Cl⁻</text><text x="52" y="150">pH = −lg[H⁺]</text>
+      </g>
+      <rect y="215" width="400" height="45" fill="#c9a06a"/>
+    </g>
+    <g id="g-desk">
+      <rect width="400" height="260" fill="#eee7d9"/>
+      <rect y="150" width="400" height="110" fill="#c79b63"/><rect y="150" width="400" height="6" fill="#a98047"/>
+      <path d="M70 200 L200 178 L330 200 L330 232 L200 214 L70 232z" fill="#fff"/><path d="M200 178 V214" stroke="#cfcfcf" stroke-width="2"/>
+      <g stroke="#8b98a5" stroke-width="2"><path d="M88 205 L188 190M88 214 L188 199M212 190 L312 205M212 199 L312 214"/></g>
+      <rect x="280" y="120" width="8" height="90" rx="3" transform="rotate(35 284 165)" fill="#2f5d8a"/>
+      <rect x="40" y="40" width="90" height="60" fill="#fff" fill-opacity=".5"/>
+      <circle cx="340" cy="60" r="26" fill="#fff" fill-opacity=".5"/>
+    </g>
+    <g id="g-teacher">
+      <rect width="400" height="260" fill="#e5edf0"/>
+      <rect x="30" y="30" width="120" height="70" fill="#fff" fill-opacity=".6"/><rect x="250" y="34" width="110" height="56" fill="#f4c96a" fill-opacity=".55"/>
+      <g><circle cx="130" cy="112" r="34" fill="#c98f68"/><path d="M96 104 q10 -34 42 -30 q26 4 24 30 q-14 -20 -66 0z" fill="#20252b"/><path d="M40 260 q4 -84 90 -84 q86 0 90 84z" fill="#6d747c"/></g>
+      <g><circle cx="280" cy="140" r="28" fill="#c98f68"/><path d="M252 134 q4 -30 30 -26 q24 4 22 26 q-12 -14 -52 0z" fill="#20252b"/><path d="M212 260 q4 -70 70 -70 q70 0 74 70z" fill="#243258"/></g>
+      <rect y="222" width="400" height="38" fill="#c79b63"/>
+    </g>
+    <g id="g-person">
+      <rect width="160" height="160" fill="currentColor" fill-opacity=".25"/>
+      <path d="M22 160 q4 -52 58 -52 q54 0 58 52z" fill="#5d6a7a"/>
+      <circle cx="80" cy="68" r="30" fill="#d3a07c"/><path d="M50 62 q4 -34 32 -32 q28 2 28 32 q-14 -16 -60 0z" fill="#1f242a"/>
+    </g>
+    <g id="g-person-f">
+      <rect width="160" height="160" fill="currentColor" fill-opacity=".25"/>
+      <path d="M22 160 q4 -52 58 -52 q54 0 58 52z" fill="#7a5d6a"/>
+      <path d="M46 70 q-6 -46 34 -46 q40 0 34 46 l4 46 h-76z" fill="#2a1f1d"/><circle cx="80" cy="72" r="28" fill="#d8ab88"/><path d="M52 66 q4 -30 30 -30 q26 0 26 30 q-14 -14 -56 0z" fill="#2a1f1d"/>
+    </g>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav">Меню</button>
+    <div class="top-right">
+      <nav class="nav" id="nav" aria-label="Основное меню">
+        <a href="#glavnaya">Главная</a><a href="#obo-mne">Обо мне</a><a href="#uslugi" style="color:#f5c22b">Цены</a><a href="#preimushchestva">Преимущества</a><a href="#otzyvy">Отзывы</a><a href="#" data-open="Бесплатное первое занятие">Контакты</a>
+      </nav>
+      <div class="contact-row">
+        <span class="tel"><span style="color:var(--orange)">★</span> 5,0 · 23 оценки</span>
+      </div>
+    </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<div class="hero">
+  <img class="bg" alt="" src="hero-bg.jpeg">
+  <div class="in">
+    <h1>Подготовлю к ЕГЭ и ОГЭ по химии</h1>
+    <p class="sub">Помогаю понять химии, <span>а не просто заучивать</span></p>
+    <div class="rule"></div>
+    <p class="lead">Более 12 лет опыта · результаты учеников 85–96 баллов · первое занятие — бесплатно</p>
+    <button class="btn btn-green" type="button" data-open="Бесплатное первое занятие">Записаться на бесплатное занятие</button>
+    <small>Занятия по 60 минут · дистанционно · индивидуально</small>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="obo-mne">
+  <div class="wrap">
+    <div class="appr-top">
+      <div><h2 class="ah">Обо мне</h2><svg class="uline" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8C45 3 120 3 197 6" fill="none" stroke="#f5c22b" stroke-width="5.5" stroke-linecap="round"/></svg></div>
+    </div>
+    <div class="about">
+      <div class="photo">
+        <div class="ph t1"><img src="tutor-photo.jpg" style="object-position:50% 20%"></div>
+        <div class="cap">Елена Савельева — репетитор по химии. Более 12 лет помогает школьникам готовиться к экзаменам</div>
+      </div>
+      <div class="panel blue facts">
+        <div class="fact">
+          <div class="ai s c-blue2"><svg viewBox="0 0 48 48"><path d="M3 19 24 9l21 10-21 10z" fill="currentColor"/><path d="M12 25v9c0 3 6 6 12 6s12-3 12-6v-9"/><path d="M45 19v12"/></svg></div>
+          <div><h3>Образование</h3><p>Окончила химический факультет КГУ им. В. И. Ульянова-Ленина, квалификация — химик, преподаватель химии. Имею педагогическое образование.</p></div>
+        </div>
+        <div class="fact">
+          <div class="ai s c-gold"><svg viewBox="0 0 48 48"><path d="M14 6h20v14a10 10 0 0 1-20 0z"/><path d="M14 10H6c0 8 3 12 9 13M34 10h8c0 8-3 12-9 13"/><path d="M24 30v8M17 42h14M19 38h10"/></svg></div>
+          <div><h3>Опыт и результаты</h3><p>Более 12 лет опыта репетиторства. Десятки учеников сдали экзамены на 85–96 баллов и успешно поступили в ведущие вузы Москвы и Санкт-Петербурга.</p></div>
+        </div>
+        <div class="fact">
+          <div class="ai s c-green"><svg viewBox="0 0 48 48"><path d="M24 9a12 12 0 0 0-6.5 22c1 1 2 2.5 2 5h9c0-2.5 1-4 2-5A12 12 0 0 0 24 9z"/><path d="M20 40h8M21.5 44h5"/><path d="M21 24l3 3 3-3M24 27v-8"/><path d="M24 1v3M10 7l2 2M38 7l-2 2M3 21h3M42 21h3"/></svg></div>
+          <div><h3>Мой подход</h3><p>Объясняю просто и доступно, подстраиваюсь под уровень и цели каждого ученика. Помогаю понять химию, а не зубрить.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section id="preimushchestva" class="appr">
+  <div class="wrap">
+
+    <div class="appr-top">
+      <div><h2 class="ah">Мой подход — понимание, а не зубрёжка</h2><svg class="uline" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8C45 3 120 3 197 6" fill="none" stroke="#f5c22b" stroke-width="5.5" stroke-linecap="round"/></svg></div>
+      <div class="note" aria-hidden="true">
+        <div class="hand">Понимать, а не заучивать
+          <svg viewBox="0 0 210 26" preserveAspectRatio="none"><path d="M4 20C60 10 130 6 206 4" fill="none" stroke="#2a5bd7" stroke-width="2.6" stroke-linecap="round" opacity=".8"/></svg>
+        </div>
+        <svg class="mol" viewBox="0 0 100 100" fill="none" stroke="#4d86d6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M30 44 46 26 72 30 80 56 60 72 36 66z" stroke-width="3"/>
+          <path d="M72 30 84 12M46 26 40 8" stroke-width="3"/>
+          <g fill="#fdf9f2"><circle cx="30" cy="44" r="6"/><circle cx="46" cy="26" r="6"/><circle cx="72" cy="30" r="6"/><circle cx="80" cy="56" r="6"/><circle cx="60" cy="72" r="6"/><circle cx="36" cy="66" r="6"/><circle cx="85" cy="11" r="5"/></g>
+          <path d="M86 26l8-3M90 14l6-6" stroke="#f5c22b" stroke-width="4"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="five">
+      <div>
+        <div class="ai c-purple"><svg viewBox="0 0 48 48"><rect x="8" y="6" width="26" height="36" rx="3"/><path d="M14 15h14M14 22h14M14 29h7"/><path d="M27 39l12-12 5 5-12 12-6 1z"/></svg></div>
+        <h3>Авторские<br>методики</h3><p>Подготовка к актуальному формату ЕГЭ и ОГЭ.</p>
+      </div>
+      <div>
+        <div class="ai c-green"><svg viewBox="0 0 48 48"><path d="M24 9a12 12 0 0 0-6.5 22c1 1 2 2.5 2 5h9c0-2.5 1-4 2-5A12 12 0 0 0 24 9z"/><path d="M20 40h8M21.5 44h5"/><path d="M21 24l3 3 3-3M24 27v-8"/><path d="M24 1v3M10 7l2 2M38 7l-2 2M3 21h3M42 21h3"/></svg></div>
+        <h3>Объясняю сложное<br>простым языком</h3><p>Чтобы ученик понимал, почему работает именно этот способ решения.</p>
+      </div>
+      <div>
+        <div class="ai c-blue"><svg viewBox="0 0 48 48"><circle cx="22" cy="26" r="16"/><circle cx="22" cy="26" r="10"/><circle cx="22" cy="26" r="4" fill="currentColor"/><path d="M22 26 41 7"/><path d="M34 6l1 7 7 1"/></svg></div>
+        <h3>Системно закрываем<br>пробелы</h3><p>Разбираем пробелы и типичные ошибки.</p>
+      </div>
+      <div>
+        <div class="ai c-orange"><svg class="head-icon" viewBox="0 0 489 568" aria-hidden="true"><path fill-rule="evenodd" d="M111.3 151.7 110.3 154.7 111.3 159.3 121.0 168.3 125.7 183.3 132.0 195.7 139.0 204.7 144.0 209.0 150.7 212.7 158.3 215.3 162.3 217.7 165.3 231.7 166.7 234.0 168.7 235.7 174.7 237.0 178.3 235.7 180.7 233.3 182.3 229.0 182.0 219.0 199.7 214.7 206.3 220.3 211.7 223.7 221.7 227.0 234.3 228.7 241.3 231.0 245.0 234.7 247.0 242.3 248.3 245.0 252.3 247.7 258.0 247.7 261.3 246.0 262.7 244.3 264.0 240.3 263.0 232.0 261.0 227.3 255.7 221.3 251.0 217.3 243.3 213.0 233.7 210.7 225.7 210.0 216.0 206.3 213.3 204.0 208.7 196.0 208.3 193.0 207.0 190.3 204.7 188.0 199.0 186.3 193.7 188.3 192.0 190.0 191.0 192.7 191.3 198.7 188.3 200.7 183.3 201.7 172.7 202.0 164.3 200.0 153.3 193.3 146.0 186.0 142.7 179.7 137.0 161.7 134.3 157.0 130.0 152.7 125.0 149.3 120.0 147.7 115.3 148.3 113.3 149.3ZM324.0 83.0 312.0 76.3 298.7 71.7 291.0 70.3 279.7 70.3 275.0 71.0 264.3 64.0 257.0 60.7 251.3 59.0 237.3 58.3 230.7 60.0 226.0 62.0 224.3 62.0 215.3 58.3 206.3 56.7 200.3 56.7 191.0 58.7 181.7 62.7 171.3 70.0 164.7 69.3 155.0 69.7 148.7 71.3 139.7 75.7 132.3 81.0 125.7 88.0 118.0 100.3 109.7 103.0 104.7 105.7 98.3 110.3 92.7 116.3 87.7 125.0 85.7 131.3 84.7 137.7 80.0 141.7 73.0 149.3 70.0 153.3 66.3 162.0 65.0 169.0 65.3 180.3 66.3 185.3 60.3 196.0 56.7 209.3 56.3 216.7 57.7 227.3 59.7 234.3 65.0 246.0 72.3 253.7 85.0 261.0 88.0 270.7 93.0 281.0 101.3 290.7 110.7 298.7 119.0 303.0 135.0 307.0 144.7 307.7 145.7 308.7 140.7 328.7 140.7 332.3 142.7 336.0 146.7 338.0 154.3 338.7 175.7 338.7 180.3 337.7 183.3 335.3 189.3 325.3 203.3 306.7 210.0 300.0 230.3 284.3 233.0 283.0 236.0 283.0 246.3 285.0 256.0 284.7 265.0 283.0 276.3 279.7 285.3 274.3 296.3 264.3 303.3 254.3 307.0 245.3 335.3 245.3 346.7 243.0 358.7 238.3 366.0 234.7 372.7 229.3 378.3 222.7 384.3 213.0 388.7 203.3 390.3 194.7 390.3 183.7 385.7 167.7 376.7 152.7 376.7 142.3 373.0 130.0 368.0 122.0 359.0 112.7 352.3 108.7 341.0 105.0 339.0 102.7 333.3 92.3 330.3 88.7ZM105.3 265.7 106.0 265.0 118.7 263.3 127.0 261.0 143.3 253.7 155.0 261.7 167.0 266.3 183.3 269.3 197.3 269.0 203.7 267.7 213.7 273.7 214.3 275.0 202.7 283.3 183.0 303.7 173.3 319.0 171.0 321.3 162.0 321.7 161.3 321.0 161.3 319.3 164.0 310.3 167.7 302.0 178.3 294.3 186.7 284.7 187.7 282.3 187.7 279.3 185.3 276.3 179.3 274.3 174.3 275.0 157.3 287.0 148.0 290.3 143.3 291.0 137.7 290.7 126.7 287.7 116.0 282.0 110.3 276.0 106.0 268.7ZM73.7 220.7 74.7 208.3 76.0 204.7 77.3 203.7 86.0 210.7 85.0 216.3 85.0 222.7 86.3 225.7 88.3 227.7 91.3 229.0 95.0 229.3 98.7 227.7 101.7 224.0 103.0 213.7 104.3 211.0 107.7 208.0 112.7 205.0 116.3 200.3 116.7 195.7 115.7 193.3 113.3 191.0 110.0 189.7 103.7 190.0 99.0 192.0 95.7 194.3 93.7 194.3 91.7 193.3 86.0 187.7 84.3 184.0 83.0 178.0 83.0 169.3 84.7 163.3 87.7 158.3 100.0 148.0 102.0 143.3 103.0 132.7 107.7 124.3 113.3 119.3 117.0 117.7 121.7 117.3 125.3 118.0 131.3 121.0 139.7 130.0 144.0 132.0 149.7 132.0 158.0 127.3 163.0 126.0 167.7 125.7 175.7 127.7 179.0 129.3 184.0 134.3 186.3 135.7 190.7 136.7 194.7 135.3 197.7 131.3 198.0 128.3 197.3 125.7 195.0 121.7 191.3 117.7 185.7 113.3 180.7 111.0 169.0 109.0 164.3 109.0 156.0 110.3 150.0 112.7 148.3 112.7 143.7 108.3 138.0 104.7 137.0 102.7 139.0 98.0 141.3 94.7 145.0 91.3 151.3 87.7 158.0 86.0 167.7 86.0 171.7 87.0 176.0 86.7 180.7 84.0 189.3 77.0 193.7 75.0 200.0 73.7 211.3 74.0 224.0 79.7 228.0 79.3 238.7 75.3 247.0 75.3 253.0 76.7 260.7 81.0 267.3 89.0 271.7 99.3 271.7 105.0 270.3 110.7 267.0 116.3 263.7 120.0 262.0 124.0 262.0 127.0 263.3 130.0 266.7 132.7 271.3 133.3 274.7 132.3 278.3 129.7 284.3 121.3 292.7 121.0 298.7 119.7 301.3 118.0 303.3 114.3 303.3 109.7 301.0 105.7 297.3 104.0 289.7 103.3 289.0 102.7 288.3 95.0 286.3 89.7 286.3 88.3 288.3 87.3 297.3 88.3 308.7 92.7 313.3 96.0 320.7 103.7 323.7 108.3 326.3 115.7 329.0 119.0 347.7 125.7 353.3 130.0 355.7 133.3 358.0 138.7 358.7 141.7 358.7 151.0 356.0 157.0 350.7 162.3 344.7 166.0 343.0 166.0 341.7 164.7 337.7 158.3 330.7 151.3 325.3 147.3 320.0 144.7 312.3 142.7 308.0 142.7 304.0 144.3 301.3 147.7 301.0 152.3 302.0 154.7 304.0 156.7 312.0 159.7 319.0 163.3 324.3 168.3 325.7 170.7 327.7 177.7 327.7 185.3 326.3 190.0 323.0 196.7 322.7 200.7 324.3 204.3 326.3 206.0 331.0 207.3 335.0 206.3 338.0 204.3 340.7 200.7 343.0 195.7 345.0 184.0 359.7 177.7 361.7 176.3 366.7 170.7 367.7 170.7 369.7 173.7 372.7 184.0 372.7 193.3 370.3 203.3 364.0 213.3 355.7 220.3 346.0 225.7 336.7 228.0 326.7 228.3 309.3 227.7 308.3 226.7 308.0 222.0 305.7 213.7 299.3 199.7 293.0 192.7 283.0 185.3 283.0 184.0 286.0 179.7 288.7 173.7 290.0 167.0 290.0 154.7 286.7 148.0 282.3 146.0 279.0 146.0 275.3 147.3 274.0 148.7 272.3 152.3 273.0 162.7 272.0 168.3 269.0 174.3 266.3 176.7 264.0 177.0 259.7 175.7 241.3 173.7 239.3 172.3 239.3 171.0 244.0 159.7 246.3 149.3 246.7 139.7 246.0 130.0 243.7 119.3 239.3 109.3 231.3 97.7 227.0 92.7 221.7 87.7 217.3 84.7 212.3 83.0 210.3 83.0 206.7 84.3 204.7 86.0 203.0 89.3 203.0 93.0 205.7 97.3 214.0 103.7 220.0 110.0 223.3 115.3 225.7 121.3 228.7 132.3 229.0 143.7 228.0 151.7 225.3 159.7 222.7 163.7 201.7 160.7 196.7 158.3 190.3 150.0 188.0 148.7 183.3 148.0 179.0 149.3 176.0 153.3 175.7 157.0 177.3 162.3 181.3 168.3 185.0 172.0 189.7 174.7 195.3 176.3 205.7 177.7 215.3 180.0 222.0 182.7 231.0 188.7 244.3 190.7 259.7 194.0 268.0 196.7 275.0 200.3 281.7 206.7 287.0 213.7 290.7 223.0 291.3 227.0 291.3 234.3 289.0 242.0 285.3 250.0 280.3 256.7 273.3 262.0 260.3 267.3 255.3 268.3 245.7 268.0 237.7 266.0 226.0 261.0 218.7 256.7 212.3 251.3 207.7 249.7 205.0 249.7 193.7 252.3 178.3 251.7 171.3 249.7 162.0 246.0 151.7 236.7 146.3 234.3 141.3 235.3 127.7 242.7 119.0 245.7 107.0 247.7 97.0 247.3 93.0 246.3 87.0 242.7 79.0 235.0 75.7 229.7ZM341.7 39.0 323.7 30.7 308.3 24.7 296.0 21.0 274.3 16.0 249.7 12.7 237.0 12.0 206.7 12.7 178.3 16.7 167.3 19.0 147.0 25.0 122.7 35.0 104.7 45.0 87.0 57.0 73.0 68.3 56.3 85.7 44.7 101.3 35.7 116.0 27.0 134.0 22.0 147.0 19.3 155.7 14.0 180.0 11.3 205.7 11.7 228.7 13.7 245.0 17.7 265.7 22.0 281.7 26.0 293.0 35.3 314.0 41.7 326.0 59.7 352.0 69.3 367.3 74.0 376.3 77.3 384.7 80.7 397.7 83.7 417.0 83.7 437.7 81.7 457.0 79.0 472.0 73.0 498.0 65.3 524.3 58.3 543.7 58.0 550.0 59.3 553.0 61.0 554.7 65.7 556.0 68.0 555.7 71.0 554.3 73.3 551.7 82.7 526.0 90.0 501.3 94.0 485.3 94.7 479.7 96.0 476.0 100.0 450.3 101.0 439.0 100.3 411.7 97.0 390.3 91.7 374.7 82.0 354.3 76.3 345.3 62.0 325.7 49.0 303.0 44.0 291.3 34.7 262.3 32.7 253.7 28.7 219.7 29.0 199.3 32.3 180.0 32.7 174.3 35.0 163.3 38.7 151.3 50.0 126.0 58.3 111.7 74.3 91.0 82.3 83.0 91.3 75.3 111.7 60.3 125.7 52.7 141.7 45.0 152.3 40.7 177.3 34.0 202.0 29.7 216.0 29.0 246.0 29.0 265.7 31.3 287.3 35.7 300.7 39.3 324.0 49.3 339.0 57.0 349.0 63.3 362.3 74.0 373.3 84.0 386.0 97.3 393.7 108.0 400.0 119.0 407.0 134.0 411.0 146.0 415.7 165.3 419.3 175.7 423.0 190.0 423.7 198.7 415.0 223.3 415.0 234.7 420.3 245.7 428.7 260.3 441.7 281.0 452.0 300.0 457.0 307.0 459.7 314.0 459.7 318.3 457.7 321.0 455.3 322.3 436.7 326.7 430.0 329.0 425.7 332.0 421.7 337.3 419.3 344.0 419.3 353.0 422.7 364.7 422.7 367.0 415.7 373.3 414.0 376.7 414.0 382.0 417.3 389.0 417.3 391.3 412.3 396.3 408.0 402.0 404.3 411.0 403.7 415.7 406.3 434.0 406.3 443.0 405.0 448.3 403.3 451.7 398.0 457.3 395.3 459.3 389.0 462.3 373.3 465.0 359.3 464.7 334.3 461.7 319.7 462.0 314.7 463.3 306.0 468.0 299.3 475.3 295.3 484.7 293.7 494.3 291.7 522.0 289.0 544.3 289.0 548.3 290.7 552.7 294.0 555.3 298.7 556.0 303.0 554.3 306.0 550.0 311.3 493.7 313.3 485.0 316.0 481.0 318.7 479.3 323.3 478.0 329.0 478.0 334.3 479.0 348.0 479.7 361.7 481.3 373.7 481.3 389.3 479.0 402.3 474.3 408.7 470.7 413.3 466.3 418.0 459.3 421.3 452.0 424.0 442.3 424.0 431.7 421.0 414.0 423.7 408.3 434.0 397.0 435.7 390.3 433.7 381.7 437.7 376.7 440.0 370.0 439.7 363.0 436.3 352.3 436.3 345.7 439.0 343.3 453.0 341.0 461.3 338.3 468.7 334.3 473.0 329.7 476.0 324.0 477.0 319.7 477.0 311.7 476.0 307.7 471.7 298.3 464.7 286.0 454.3 270.0 445.0 252.7 437.7 241.7 432.7 232.0 433.0 225.0 437.7 213.0 440.7 202.7 441.0 191.3 432.3 161.0 428.7 145.0 424.0 130.7 413.7 108.3 404.7 94.0 392.0 78.3 378.0 64.3 370.0 57.7 357.3 48.7Z"/></svg></div>
+        <h3>Развиваем логику<br>решения задач</h3><p>а не механическое применение шаблонов</p>
+      </div>
+      <div>
+        <div class="ai c-lilac"><svg viewBox="0 0 48 48"><circle cx="24" cy="15" r="8"/><path d="M8 42c0-9 7-15 16-15s16 6 16 15z"/></svg></div>
+        <h3>Индивидуальный<br>план подготовки</h3><p>с учётом уровня ученика и поставленной цели</p>
+      </div>
+    </div>
+
+    <div class="panel blue">
+      <div class="p-head">
+        <div><h2 class="ah m">Что меняется<br>в процессе подготовки</h2><svg class="uline" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8C45 3 120 3 197 6" fill="none" stroke="#f5c22b" stroke-width="5.5" stroke-linecap="round"/></svg></div>
+        <div class="note2" aria-hidden="true">
+          <svg viewBox="0 0 86 56" fill="none" stroke="#2a5bd7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 52C8 30 30 14 74 12"/><path d="M64 4l11 8-10 8"/></svg>
+          <div class="hand">Постепенно к стабильному результату</div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="ai s c-blue2"><svg viewBox="0 0 48 48"><circle cx="21" cy="21" r="13"/><path d="M31 31l12 12"/></svg></div>
+          <h3>Уже в первые недели</h3><p>становится понятно, какие темы дают потерю баллов и что именно нужно исправить.</p>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 5l7 7-7 7"/></svg>
+        <div class="step">
+          <div class="ai s c-purple2"><svg viewBox="0 0 48 48"><rect x="7" y="26" width="8" height="15" rx="1"/><rect x="20" y="16" width="8" height="25" rx="1"/><rect x="33" y="6" width="8" height="35" rx="1"/></svg></div>
+          <h3>Постепенно сокращается</h3><p>количество типичных ошибок и повышается стабильность результатов на пробниках.</p>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 5l7 7-7 7"/></svg>
+        <div class="step">
+          <div class="ai s c-green2"><svg viewBox="0 0 48 48"><path d="M3 19 24 9l21 10-21 10z" fill="currentColor"/><path d="M12 25v9c0 3 6 6 12 6s12-3 12-6v-9"/><path d="M45 19v12"/></svg></div>
+          <h3>При регулярных занятиях</h3><p>формируется система знаний, которая позволяет решать новые задачи, а не только знакомые варианты.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel peach">
+      <div class="res-head">
+        <div class="ai c-gold"><svg viewBox="0 0 48 48"><path d="M14 6h20v14a10 10 0 0 1-20 0z"/><path d="M14 10H6c0 8 3 12 9 13M34 10h8c0 8-3 12-9 13"/><path d="M24 30v8M17 42h14M19 38h10"/></svg></div>
+        <div><h2 class="ah m">Результаты учеников</h2><svg class="uline" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8C45 3 120 3 197 6" fill="none" stroke="#f5c22b" stroke-width="5.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="row"><span class="n" style="color:#7a1fc4">17</span><span>учеников —</span></div><strong>90+ баллов на ЕГЭ</strong><small>за последние 3 года</small></div>
+        <div class="stat"><div class="row"><span class="n" style="color:#13977a">36</span><span>учеников —</span></div><strong>80+ баллов на ЕГЭ</strong><small>за последние 3 года</small></div>
+        <div class="stat last">
+          <svg class="inst" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 16 24 5l20 11z"/><path d="M8 20v18M17 20v18M31 20v18M40 20v18M4 42h40M6 38h36"/></svg>
+          <strong>Ежегодные поступления</strong><small>учеников в медицинские вузы Москвы и Санкт-Петербурга</small>
+        </div>
+      </div>
+      <svg class="illus" viewBox="0 0 270 200" aria-hidden="true">
+        <ellipse cx="134" cy="182" rx="112" ry="4.5" fill="#1d2b57" opacity=".08"/>
+        <g>
+          <rect x="28" y="148" width="212" height="32" rx="5" fill="#3a62b0"/>
+          <rect x="28" y="148" width="14" height="32" rx="5" fill="#2c4d94"/>
+          <rect x="42" y="153" width="196" height="22" rx="2" fill="#f5edda"/>
+          <path d="M48 160h184M48 167h184" stroke="#d9cdb2" stroke-width="1.5"/>
+        </g>
+        <g>
+          <rect x="44" y="118" width="184" height="30" rx="5" fill="#13977a"/>
+          <rect x="44" y="118" width="14" height="30" rx="5" fill="#0e7a63"/>
+          <rect x="58" y="123" width="168" height="20" rx="2" fill="#f5edda"/>
+          <path d="M64 130h156M64 136h156" stroke="#d9cdb2" stroke-width="1.5"/>
+        </g>
+        <g>
+          <rect x="60" y="90" width="156" height="28" rx="5" fill="#7a1fc4"/>
+          <rect x="60" y="90" width="14" height="28" rx="5" fill="#5f169c"/>
+          <rect x="74" y="95" width="140" height="18" rx="2" fill="#f5edda"/>
+          <path d="M80 101h128M80 107h128" stroke="#d9cdb2" stroke-width="1.5"/>
+        </g>
+        <path d="M100 66v20q40 16 80 0V66l-40 14z" fill="#16244f"/>
+        <path d="M60 58 140 32l80 26-80 26z" fill="#1f2f63"/>
+        <path d="M60 58 140 32l80 26-80 4z" fill="#2c4088"/>
+        <path d="M140 58 210 63V86" fill="none" stroke="#f0b429" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M204 86h12l3 18h-18z" fill="#e9a91c"/>
+        <circle cx="140" cy="58" r="5" fill="#f0b429"/>
+        <g transform="translate(38 46)">
+          <circle r="18" fill="#fff" stroke="#e6d9bd" stroke-width="2"/>
+          <path d="M-3.5 -10h7v6.5h6.5v7h-6.5v6.5h-7v-6.5h-6.5v-7h6.5z" fill="#13977a"/>
+        </g>
+        <path d="M242 22l2.6 7.4 7.4 2.6-7.4 2.6-2.6 7.4-2.6-7.4-7.4-2.6 7.4-2.6z" fill="#f0b429"/>
+        <path d="M254 58l1.6 4.4 4.4 1.6-4.4 1.6-1.6 4.4-1.6-4.4-4.4-1.6 4.4-1.6z" fill="#f0b429" opacity=".8"/>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<!-- LESSONS -->
+<section id="uroki">
+  <div class="wrap lessons">
+    <div class="appr-top">
+      <div><h2 class="ah">О моих уроках</h2><svg class="uline" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8C45 3 120 3 197 6" fill="none" stroke="#f5c22b" stroke-width="5.5" stroke-linecap="round"/></svg></div>
+      <div class="note" aria-hidden="true">
+        <div class="hand">Понятно и без зубрёжки
+          <svg viewBox="0 0 210 26" preserveAspectRatio="none"><path d="M4 20C60 10 130 6 206 4" fill="none" stroke="#2a5bd7" stroke-width="2.6" stroke-linecap="round" opacity=".8"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="les-intro">Готовлю к ЕГЭ и ОГЭ по химии дистанционно. Занятие длится 60 минут и проходит индивидуально, в удобное для вас время.</p>
+      <div class="chips"><span class="chip"><i></i>60 минут</span><span class="chip"><i></i>Дистанционно</span><span class="chip"><i></i>Индивидуально</span><span class="chip"><i></i>В удобное время</span></div>
+    </div>
+
+    <div class="panel blue">
+      <div class="trio">
+        <div class="step">
+          <div class="ai s c-lilac"><svg viewBox="0 0 48 48"><circle cx="24" cy="15" r="8"/><path d="M8 42c0-9 7-15 16-15s16 6 16 15z"/></svg></div>
+          <h3>Индивидуальный подход</h3><p>Подстраиваюсь под уровень и цели каждого ученика.</p>
+        </div>
+        <div class="step">
+          <div class="ai s c-green"><svg viewBox="0 0 48 48"><path d="M24 9a12 12 0 0 0-6.5 22c1 1 2 2.5 2 5h9c0-2.5 1-4 2-5A12 12 0 0 0 24 9z"/><path d="M20 40h8M21.5 44h5"/><path d="M21 24l3 3 3-3M24 27v-8"/><path d="M24 1v3M10 7l2 2M38 7l-2 2M3 21h3M42 21h3"/></svg></div>
+          <h3>Простое и доступное объяснение</h3><p>Помогаю понять, почему работает именно этот способ решения.</p>
+        </div>
+        <div class="step">
+          <div class="ai s c-blue"><svg viewBox="0 0 48 48"><circle cx="22" cy="26" r="16"/><circle cx="22" cy="26" r="10"/><circle cx="22" cy="26" r="4" fill="currentColor"/><path d="M22 26 41 7"/><path d="M34 6l1 7 7 1"/></svg></div>
+          <h3>Результативность</h3><p>Десятки учеников сдали экзамены на 85–96 баллов.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="otzyvy">
+  <div class="wrap lessons">
+    <div class="appr-top">
+      <div><h2 class="ah">Отзывы</h2><svg class="uline" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8C45 3 120 3 197 6" fill="none" stroke="#f5c22b" stroke-width="5.5" stroke-linecap="round"/></svg></div>
+      <div class="note" aria-hidden="true">
+        <div class="hand">Отзывы учеников на Яндекс Услугах
+          <svg viewBox="0 0 210 26" preserveAspectRatio="none"><path d="M4 20C60 10 130 6 206 4" fill="none" stroke="#2a5bd7" stroke-width="2.6" stroke-linecap="round" opacity=".8"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="panel warm rev-panel">
+      <div class="stats">
+        <div class="stat"><div class="row"><span class="n" style="color:#7a1fc4">5</span><span></span></div><strong>Рейтинг</strong><small>Максимальная оценка в профиле репетитора на Яндекс Услугах</small></div>
+        <div class="stat"><div class="row"><span class="n" style="color:#13977a">23</span><span>отзыва</span></div><strong>Отзывы учеников</strong><small>Столько отзывов оставили ученики на Яндекс Услугах</small></div>
+        <div class="stat"><div class="row"><span class="n" style="color:#1b4fd0">12</span><span>лет</span></div><strong>Опыт</strong><small>Более 12 лет опыта. Десятки учеников с результатами 85–96 баллов и поступлением в ведущие вузы Москвы и Санкт-Петербурга.</small></div>
+      </div>
+      <div class="rev-cta"><button class="btn sm" type="button" id="rev-open">Читать отзывы</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="uslugi" class="appr">
+  <div class="wrap">
+    <div class="appr-top">
+      <div><h2 class="ah">Мои услуги</h2><svg class="uline" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8C45 3 120 3 197 6" fill="none" stroke="#f5c22b" stroke-width="5.5" stroke-linecap="round"/></svg></div>
+      <div class="note" aria-hidden="true">
+        <div class="hand">Индивидуальный подход к каждому ученику
+          <svg viewBox="0 0 210 26" preserveAspectRatio="none"><path d="M4 20C60 10 130 6 206 4" fill="none" stroke="#2a5bd7" stroke-width="2.6" stroke-linecap="round" opacity=".8"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="panel blue">
+      <div class="svc-grid">
+        <div class="svc">
+          <div class="ai s c-blue2"><svg viewBox="0 0 48 48"><path d="M3 19 24 9l21 10-21 10z" fill="currentColor"/><path d="M12 25v9c0 3 6 6 12 6s12-3 12-6v-9"/><path d="M45 19v12"/></svg></div>
+          <h3>Подготовка к ЕГЭ по химии</h3>
+          <p>Дистанционная подготовка к ЕГЭ. Помогаю понять химию, а не зубрить. Десятки учеников с результатами 85–96 баллов и успешным поступлением в ведущие вузы Москвы и Санкт-Петербурга. Занятие — 60 минут.</p>
+          <div class="price">2&nbsp;000 руб. <span>/ урок</span></div>
+          <button class="btn sm" type="button" data-open="Подготовка к ЕГЭ">Записаться</button>
+        </div>
+        <div class="svc">
+          <div class="ai s c-purple2"><svg viewBox="0 0 48 48"><rect x="8" y="6" width="26" height="36" rx="3"/><path d="M14 15h14M14 22h14M14 29h7"/><path d="M27 39l12-12 5 5-12 12-6 1z"/></svg></div>
+          <h3>Подготовка к ОГЭ по химии</h3>
+          <p>Дистанционная подготовка к ОГЭ. Объясняю материал просто и доступно, подстраиваюсь под уровень каждого ученика. Занятие — 60 минут.</p>
+          <div class="price">2&nbsp;000 руб. <span>/ урок</span></div>
+          <button class="btn sm" type="button" data-open="Подготовка к ОГЭ">Записаться</button>
+        </div>
+        <div class="svc">
+          <div class="ai s c-green2"><svg viewBox="0 0 48 48"><path d="M18 5h12M20 5v14L9 40a3 3 0 0 0 3 4h24a3 3 0 0 0 3-4L28 19V5"/><path d="M13 33h22"/></svg></div>
+          <h3>Занятия по химии</h3>
+          <p>Занятия по школьной и общей химии для школьников. Помогаю разобраться в предмете и освоить программу. Занятие — 60 минут.</p>
+          <div class="price">2&nbsp;000 руб. <span>/ урок</span></div>
+          <button class="btn sm" type="button" data-open="Занятия по химии">Записаться</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="appr final-cta">
+  <div class="wrap">
+    <div class="panel blue">
+      <h2 class="ah">Хотите начать подготовку?</h2>
+      <p class="les-intro">Первое занятие — бесплатно: познакомимся и узнаем ваш уровень.</p>
+      <button class="btn btn-green" type="button" data-open="Бесплатное первое занятие">Записаться на бесплатное занятие</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot-main">
+  <div class="wrap">
+    <div class="brand">
+      <p>Елена Савельева, репетитор по химии</p><p style="margin-top:0">Занятия дистанционно</p>
+    </div>
+    <div><h4>Связь со мной</h4><a class="n">8:00–21:00</a><a href="#" data-open="Бесплатное первое занятие">Контакты</a></div>
+    <div><h4>Ученикам</h4><a href="#preimushchestva">Преимущества</a><a href="#otzyvy">Отзывы</a></div>
+    <div><h4>Обо мне</h4><a href="#glavnaya">Главная</a><a href="#obo-mne">Обо мне</a><a href="#uslugi" style="color:#f5c22b">Цены</a></div>
+  </div>
+</footer>
+
+<dialog id="rev-dlg" aria-labelledby="rev-title">
+  <div class="rev-bar">
+    <h3 id="rev-title">Отзывы учеников</h3>
+    <button class="rev-x" type="button" id="rev-close" aria-label="Закрыть">&times;</button>
+  </div>
+  <div class="rev-scroll" id="rev-scroll" tabindex="0">
+    <img alt="Отзывы учеников о репетиторе по химии Елене Савельевой" src="reviews.jpeg">
+  </div>
+</dialog>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg">
+    <h3 id="dlg-title">Записаться на занятие</h3>
+    <p class="note" id="dlg-note">Позвоните, чтобы записаться:</p>
+    <p class="phone">8-917-859-95-38</p>
+    <p style="margin:0 0 4px;font-size:12.6px">Время для связи: 8:00–21:00. Первое занятие — бесплатно.</p>
+    <div class="actions">
+      <button class="btn ghost" type="button" id="dlg-close" style="flex:1">Закрыть</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var dlg=document.getElementById('dlg'),note=document.getElementById('dlg-note');
+  document.querySelectorAll('[data-open]').forEach(function(b){
+    b.addEventListener('click',function(e){
+      if(b.tagName==='A')e.preventDefault();
+      note.textContent=b.getAttribute('data-open')+'. Позвоните, чтобы записаться:';
+      if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
+    });
+  });
+  function close(){dlg.close?dlg.close():dlg.removeAttribute('open')}
+  document.getElementById('dlg-close').addEventListener('click',close);
+  dlg.addEventListener('click',function(e){if(e.target===dlg)close()});
+  var rev=document.getElementById('rev-dlg'),revScroll=document.getElementById('rev-scroll');
+  function revClose(){rev.close?rev.close():rev.removeAttribute('open');document.documentElement.style.overflow=''}
+  document.getElementById('rev-open').addEventListener('click',function(){
+    if(rev.showModal)rev.showModal();else rev.setAttribute('open','');
+    document.documentElement.style.overflow='hidden';revScroll.scrollTop=0;revScroll.focus({preventScroll:true});
+  });
+  document.getElementById('rev-close').addEventListener('click',revClose);
+  rev.addEventListener('click',function(e){if(e.target===rev)revClose()});
+  rev.addEventListener('close',function(){document.documentElement.style.overflow=''});
+  var burger=document.querySelector('.burger'),nav=document.getElementById('nav');
+  burger.addEventListener('click',function(){
+    var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);
+  });
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+})();
+</script>
+
+</body>
+</html>
