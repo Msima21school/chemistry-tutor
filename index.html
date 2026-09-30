@@ -748,11 +748,11 @@ html:has(.modal:target) { overflow: hidden; }
   <a class="back" href="#close" aria-label="Закрыть"></a>
   <div class="box">
     <a class="x" href="#close" aria-label="Закрыть">&times;</a>
-    <h3 id="m3-title">Написать в Telegram</h3>
+    <h3 id="m3-title">Оставить заявку</h3>
     <p class="hint">Оставьте контакты, и я свяжусь с вами в ближайшее время</p>
     <form id="lead-form" novalidate>
       <input class="f-in" type="text" name="name" placeholder="Ваше имя" aria-label="Ваше имя" autocomplete="name" required>
-      <input class="f-in" type="tel" name="phone" placeholder="Телефон или @ник в Telegram" aria-label="Телефон или ник в Telegram" autocomplete="tel" required>
+      <input class="f-in" type="text" inputmode="text" name="phone" placeholder="Телефон или @ник в Telegram" aria-label="Телефон или ник в Telegram" autocomplete="tel" required>
       <textarea class="f-in" name="message" rows="3" placeholder="К какому экзамену готовитесь и в какое время удобно заниматься (необязательно)" aria-label="Сообщение"></textarea>
       <!-- ловушка для ботов: человек это поле не видит и не заполняет -->
       <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
