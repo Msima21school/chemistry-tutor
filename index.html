@@ -219,6 +219,44 @@ dialog::backdrop { background: rgba(0,0,0,.55); }
 .dlg .ghost { background: none; border: 1px solid var(--line); color: var(--ink); }
 .dlg .ghost:hover { background: var(--bg-alt); }
 
+
+/* contact modals (pure CSS, :target) */
+.anchor-off { position: fixed; top: 0; left: 0; width: 0; height: 0; }
+html:has(.modal:target) { overflow: hidden; }
+.modal { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; padding: 16px; }
+.modal:target { display: flex; }
+.modal .back { position: absolute; inset: 0; background: rgba(0,0,0,.55); }
+.modal .box { position: relative; width: min(420px, 100%); background: var(--card); color: var(--ink); border-radius: 10px; padding: 28px 26px 26px; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+.modal .x { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border-radius: 50%; background: var(--bg-alt); color: var(--ink); font: 400 24px/1 var(--body-font); display: grid; place-items: center; padding-bottom: 3px; }
+.modal .x:hover { background: #e4e4e4; }
+.modal h3 { margin: 0 34px 6px 0; font-weight: 500; font-size: 19.8px; line-height: 1.25; }
+.modal .hint { display: block; margin: 0 0 14px; color: var(--muted); font-size: 12.6px; font-weight: 500; }
+.modal .fine { margin: 14px 0 0; font-size: 12.6px; font-weight: 500; color: #38405e; }
+.modal .choice { display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
+.modal .choice .call { flex: 1; display: grid; place-items: center; font-size: 16px; padding: 16px 18px; }
+.modal .choice .tg { flex: none; width: 64px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 4px; background: #fff; transition: background .15s; }
+.modal .choice .tg:hover { background: #eaf6fc; }
+.modal .choice .tg svg { width: 36px; height: 36px; }
+.modal .phone-num { display: block; margin: 8px 0 0; font-size: 25.2px; font-weight: 600; line-height: 1.2; white-space: nowrap; }
+.modal .actions { display: flex; gap: 10px; margin-top: 18px; }
+.modal .actions .btn { flex: 1; text-align: center; }
+.modal .ghost { background: none; border: 1px solid var(--line); color: var(--ink); }
+.modal .ghost:hover { background: var(--bg-alt); }
+.modal textarea { display: block; width: 100%; resize: vertical; min-height: 110px; border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; font: 500 13px/1.4 var(--body-font); color: var(--ink); }
+.modal textarea:focus { outline: 2px solid #229ED9; outline-offset: 0; border-color: #229ED9; }
+.modal .tg-send { background: #229ED9; }
+.modal .tg-send:hover { background: #1b87b9; }
+
+/* форма заявки в Telegram */
+.modal .f-in { display: block; width: 100%; margin: 0 0 10px; border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; font: 500 13px/1.4 var(--body-font); color: var(--ink); background: #fff; }
+.modal .f-in:focus { outline: 2px solid #229ED9; outline-offset: 0; border-color: #229ED9; }
+.modal textarea.f-in { min-height: 84px; resize: vertical; }
+.modal .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.modal .form-status { margin: 12px 0 0; min-height: 1.3em; text-align: center; font-size: 12.6px; font-weight: 500; }
+.modal .form-status.ok { color: #1a8f4a; }
+.modal .form-status.err { color: #d33; }
+.modal .tg-send:disabled { opacity: .6; cursor: wait; }
+
 /* =========================================================
    MOBILE RESPONSIVE
    ========================================================= */
@@ -368,7 +406,7 @@ dialog::backdrop { background: rgba(0,0,0,.55); }
     <button class="burger" type="button" aria-expanded="false" aria-controls="nav">Меню</button>
     <div class="top-right">
       <nav class="nav" id="nav" aria-label="Основное меню">
-        <a href="#glavnaya">Главная</a><a href="#obo-mne">Обо мне</a><a href="#uslugi" style="color:#f5c22b">Цены</a><a href="#preimushchestva">Преимущества</a><a href="#otzyvy">Отзывы</a><a href="#" data-open="Бесплатное первое занятие">Контакты</a>
+        <a href="#glavnaya">Главная</a><a href="#obo-mne">Обо мне</a><a href="#uslugi" style="color:#f5c22b">Цены</a><a href="#preimushchestva">Преимущества</a><a href="#otzyvy">Отзывы</a><a href="#contact">Контакты</a>
       </nav>
       <div class="contact-row">
         <span class="tel"><span style="color:var(--orange)">★</span> 5,0 · 23 оценки</span>
@@ -387,7 +425,7 @@ dialog::backdrop { background: rgba(0,0,0,.55); }
     <p class="sub">Помогаю понять химии, <span>а не просто заучивать</span></p>
     <div class="rule"></div>
     <p class="lead">Более 12 лет опыта · результаты учеников 85–96 баллов · первое занятие — бесплатно</p>
-    <button class="btn btn-green" type="button" data-open="Бесплатное первое занятие">Записаться на бесплатное занятие</button>
+    <a class="btn btn-green" href="#contact">Записаться на бесплатное занятие</a>
     <small>Занятия по 60 минут · дистанционно · индивидуально</small>
   </div>
 </div>
@@ -617,21 +655,21 @@ dialog::backdrop { background: rgba(0,0,0,.55); }
           <h3>Подготовка к ЕГЭ по химии</h3>
           <p>Дистанционная подготовка к ЕГЭ. Помогаю понять химию, а не зубрить. Десятки учеников с результатами 85–96 баллов и успешным поступлением в ведущие вузы Москвы и Санкт-Петербурга. Занятие — 60 минут.</p>
           <div class="price">2&nbsp;000 руб. <span>/ урок</span></div>
-          <button class="btn sm" type="button" data-open="Подготовка к ЕГЭ">Записаться</button>
+          <a class="btn sm" href="#contact">Записаться</a>
         </div>
         <div class="svc">
           <div class="ai s c-purple2"><svg viewBox="0 0 48 48"><rect x="8" y="6" width="26" height="36" rx="3"/><path d="M14 15h14M14 22h14M14 29h7"/><path d="M27 39l12-12 5 5-12 12-6 1z"/></svg></div>
           <h3>Подготовка к ОГЭ по химии</h3>
           <p>Дистанционная подготовка к ОГЭ. Объясняю материал просто и доступно, подстраиваюсь под уровень каждого ученика. Занятие — 60 минут.</p>
           <div class="price">2&nbsp;000 руб. <span>/ урок</span></div>
-          <button class="btn sm" type="button" data-open="Подготовка к ОГЭ">Записаться</button>
+          <a class="btn sm" href="#contact">Записаться</a>
         </div>
         <div class="svc">
           <div class="ai s c-green2"><svg viewBox="0 0 48 48"><path d="M18 5h12M20 5v14L9 40a3 3 0 0 0 3 4h24a3 3 0 0 0 3-4L28 19V5"/><path d="M13 33h22"/></svg></div>
           <h3>Занятия по химии</h3>
           <p>Занятия по школьной и общей химии для школьников. Помогаю разобраться в предмете и освоить программу. Занятие — 60 минут.</p>
           <div class="price">2&nbsp;000 руб. <span>/ урок</span></div>
-          <button class="btn sm" type="button" data-open="Занятия по химии">Записаться</button>
+          <a class="btn sm" href="#contact">Записаться</a>
         </div>
       </div>
     </div>
@@ -644,7 +682,7 @@ dialog::backdrop { background: rgba(0,0,0,.55); }
     <div class="panel blue">
       <h2 class="ah">Хотите начать подготовку?</h2>
       <p class="les-intro">Первое занятие — бесплатно: познакомимся и узнаем ваш уровень.</p>
-      <button class="btn btn-green" type="button" data-open="Бесплатное первое занятие">Записаться на бесплатное занятие</button>
+      <a class="btn btn-green" href="#contact">Записаться на бесплатное занятие</a>
     </div>
   </div>
 </section>
@@ -656,7 +694,7 @@ dialog::backdrop { background: rgba(0,0,0,.55); }
     <div class="brand">
       <p>Елена Савельева, репетитор по химии</p><p style="margin-top:0">Занятия дистанционно</p>
     </div>
-    <div><h4>Связь со мной</h4><a class="n">8:00–21:00</a><a href="#" data-open="Бесплатное первое занятие">Контакты</a></div>
+    <div><h4>Связь со мной</h4><a class="n">8:00–21:00</a><a href="#contact">Контакты</a></div>
     <div><h4>Ученикам</h4><a href="#preimushchestva">Преимущества</a><a href="#otzyvy">Отзывы</a></div>
     <div><h4>Обо мне</h4><a href="#glavnaya">Главная</a><a href="#obo-mne">Обо мне</a><a href="#uslugi" style="color:#f5c22b">Цены</a></div>
   </div>
@@ -672,32 +710,64 @@ dialog::backdrop { background: rgba(0,0,0,.55); }
   </div>
 </dialog>
 
-<dialog id="dlg" aria-labelledby="dlg-title">
-  <div class="dlg">
-    <h3 id="dlg-title">Записаться на занятие</h3>
-    <p class="note" id="dlg-note">Позвоните, чтобы записаться:</p>
-    <p class="phone">8-917-859-95-38</p>
-    <p style="margin:0 0 4px;font-size:12.6px">Время для связи: 8:00–21:00. Первое занятие — бесплатно.</p>
+
+
+
+<!-- Окна связи: работают на CSS :target, без JavaScript -->
+<i id="close" class="anchor-off" aria-hidden="true"></i>
+
+<div class="modal" id="contact" role="dialog" aria-labelledby="m1-title">
+  <a class="back" href="#close" aria-label="Закрыть"></a>
+  <div class="box">
+    <a class="x" href="#close" aria-label="Закрыть">&times;</a>
+    <h3 id="m1-title">Записаться на занятие</h3>
+    <p class="hint">Выберите, как вам удобнее связаться</p>
+    <div class="choice">
+      <a class="btn call" href="#phone">Позвонить</a>
+      <a class="btn call" href="#telegram">Записаться</a>
+    </div>
+    <p class="fine">Время для связи: 8:00–21:00. Первое занятие — бесплатно.</p>
+  </div>
+</div>
+
+<div class="modal" id="phone" role="dialog" aria-labelledby="m2-title">
+  <a class="back" href="#close" aria-label="Закрыть"></a>
+  <div class="box">
+    <a class="x" href="#close" aria-label="Закрыть">&times;</a>
+    <h3 id="m2-title">Позвоните, чтобы записаться</h3>
+    <a class="phone-num" href="tel:+79178599538">8-917-859-95-38</a>
+    <p class="fine">Время для связи: 8:00–21:00. Первое занятие — бесплатно.</p>
     <div class="actions">
-      <button class="btn ghost" type="button" id="dlg-close" style="flex:1">Закрыть</button>
+      <a class="btn ghost" href="#contact">Назад</a>
+      <a class="btn" href="tel:+79178599538">Набрать</a>
     </div>
   </div>
-</dialog>
+</div>
+
+<div class="modal" id="telegram" role="dialog" aria-labelledby="m3-title">
+  <a class="back" href="#close" aria-label="Закрыть"></a>
+  <div class="box">
+    <a class="x" href="#close" aria-label="Закрыть">&times;</a>
+    <h3 id="m3-title">Написать в Telegram</h3>
+    <p class="hint">Оставьте контакты, и я свяжусь с вами в ближайшее время</p>
+    <form id="lead-form" novalidate>
+      <input class="f-in" type="text" name="name" placeholder="Ваше имя" aria-label="Ваше имя" autocomplete="name" required>
+      <input class="f-in" type="tel" name="phone" placeholder="Телефон или @ник в Telegram" aria-label="Телефон или ник в Telegram" autocomplete="tel" required>
+      <textarea class="f-in" name="message" rows="3" placeholder="К какому экзамену готовитесь и в какое время удобно заниматься (необязательно)" aria-label="Сообщение"></textarea>
+      <!-- ловушка для ботов: человек это поле не видит и не заполняет -->
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="actions">
+        <a class="btn ghost" href="#contact">Назад</a>
+        <button class="btn tg-send" type="submit">Отправить</button>
+      </div>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
 
 <script>
 (function(){
-  var dlg=document.getElementById('dlg'),note=document.getElementById('dlg-note');
-  document.querySelectorAll('[data-open]').forEach(function(b){
-    b.addEventListener('click',function(e){
-      if(b.tagName==='A')e.preventDefault();
-      note.textContent=b.getAttribute('data-open')+'. Позвоните, чтобы записаться:';
-      if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
-    });
-  });
-  function close(){dlg.close?dlg.close():dlg.removeAttribute('open')}
-  document.getElementById('dlg-close').addEventListener('click',close);
-  dlg.addEventListener('click',function(e){if(e.target===dlg)close()});
-  var rev=document.getElementById('rev-dlg'),revScroll=document.getElementById('rev-scroll');
+    var rev=document.getElementById('rev-dlg'),revScroll=document.getElementById('rev-scroll');
   function revClose(){rev.close?rev.close():rev.removeAttribute('open');document.documentElement.style.overflow=''}
   document.getElementById('rev-open').addEventListener('click',function(){
     if(rev.showModal)rev.showModal();else rev.setAttribute('open','');
@@ -711,6 +781,46 @@ dialog::backdrop { background: rgba(0,0,0,.55); }
     var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);
   });
   nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+})();
+
+// Отправка заявки через Google Apps Script -> Telegram
+(function(){
+  var SCRIPT_URL='https://script.google.com/macros/s/AKfycbzEOk5HJdOUtOts-ImJdE-wuMpiWu1KYn-36Nju4AJPaNZUER0BzMc_Vu2V-Eio-aYU/exec';
+  var form=document.getElementById('lead-form');
+  if(!form)return;
+  var statusEl=document.getElementById('form-status');
+  var btn=form.querySelector('button[type="submit"]');
+
+  function setStatus(text,cls){statusEl.textContent=text;statusEl.className='form-status'+(cls?' '+cls:'')}
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=form.elements.name.value.trim();
+    var phone=form.elements.phone.value.trim();
+    if(!name||!phone){setStatus('Укажите имя и контакт для связи','err');return}
+
+    btn.disabled=true;
+    setStatus('Отправляем...','');
+    var body=new URLSearchParams(new FormData(form));
+
+    fetch(SCRIPT_URL,{method:'POST',body:body})
+      .then(function(r){return r.json()})
+      .then(function(d){if(!d.ok)throw new Error('server')})
+      .catch(function(err){
+        // Если браузер заблокировал чтение ответа (CORS), отправляем ещё раз без чтения ответа
+        if(err&&err.message==='server')throw err;
+        return fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',body:body});
+      })
+      .then(function(){
+        setStatus('Спасибо! Заявка отправлена, я скоро свяжусь с вами.','ok');
+        form.reset();
+        setTimeout(function(){location.hash='#close';setStatus('','')},2500);
+      })
+      .catch(function(){
+        setStatus('Не удалось отправить. Позвоните по номеру 8-917-859-95-38.','err');
+      })
+      .then(function(){btn.disabled=false});
+  });
 })();
 </script>
 
