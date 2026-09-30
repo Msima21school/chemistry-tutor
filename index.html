@@ -793,6 +793,26 @@ html:has(.modal:target) { overflow: hidden; }
 
   function setStatus(text,cls){statusEl.textContent=text;statusEl.className='form-status'+(cls?' '+cls:'')}
 
+  // --- Источник заявки: UTM-метки, yclid, реферер ---
+  var UTM_KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','yclid'];
+  function cut(v){return String(v||'').slice(0,200)}
+  function getAttribution(){
+    var store=null,saved={},data={},fresh=false;
+    try{store=window.sessionStorage;saved=JSON.parse(store.getItem('attr')||'{}')}catch(e){}
+    var q=new URLSearchParams(location.search);
+    UTM_KEYS.forEach(function(k){var v=q.get(k);if(v){data[k]=cut(v);fresh=true}});
+    if(fresh){
+      data.landing=cut(location.pathname+location.search);
+      try{store.setItem('attr',JSON.stringify(data))}catch(e){}
+      return data;
+    }
+    if(saved.landing)return saved;   // метки были при заходе в этой сессии
+    var ref='';
+    try{var h=new URL(document.referrer).hostname;if(h&&h!==location.hostname)ref=h}catch(e){}
+    return {landing:cut(location.pathname),referrer:ref};
+  }
+  getAttribution(); // запоминаем метки сразу при загрузке страницы
+
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var name=form.elements.name.value.trim();
@@ -802,6 +822,8 @@ html:has(.modal:target) { overflow: hidden; }
     btn.disabled=true;
     setStatus('Отправляем...','');
     var body=new URLSearchParams(new FormData(form));
+    var attr=getAttribution();
+    Object.keys(attr).forEach(function(k){body.set(k,attr[k])});
 
     fetch(SCRIPT_URL,{method:'POST',body:body})
       .then(function(r){return r.json()})
