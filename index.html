@@ -846,9 +846,8 @@ html:has(.modal:target) { overflow: hidden; }
         return fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',body:body});
       })
       .then(function(){
-        setStatus('Спасибо! Заявка отправлена, я скоро свяжусь с вами.','ok');
-        form.reset();
-        setTimeout(function(){location.hash='#close';setStatus('','')},2500);
+        form.reset(); // очищаем форму
+        window.location.href = 'spasibo.html'; // перенаправляем на страницу спасибо
       })
       .catch(function(){
         setStatus('Не удалось отправить. Позвоните по номеру 8-917-859-95-38.','err');
