@@ -5,6 +5,18 @@
 <meta name="color-scheme" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Спасибо за заявку — Елена Савельева</title>
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Защита: страница показывается только после отправки формы.
+     При прямом заходе или обновлении человек уходит на главную,
+     и посещение не попадает в цель Метрики. -->
+<script>
+(function(){
+  var ok=null;
+  try{ok=sessionStorage.getItem('lead_ok');sessionStorage.removeItem('lead_ok')}catch(e){ok='nostorage'}
+  if(!ok){window.__bounce=true;location.replace('/')}
+})();
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -262,6 +274,22 @@ h1 {
   }
 }
 </style>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+if(!window.__bounce){
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113474784', 'ym');
+
+    ym(113474784, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+}
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113474784" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 
 <body>
