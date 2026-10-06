@@ -242,6 +242,7 @@ html:has(.modal:target) { overflow: hidden; }
 .modal .actions .btn { flex: 1; text-align: center; }
 .modal .ghost { background: none; border: 1px solid var(--line); color: var(--ink); }
 .modal .ghost:hover { background: var(--bg-alt); }
+.modal .copy-btn { display: block; width: 100%; margin: 12px 0 0; }
 .modal textarea { display: block; width: 100%; resize: vertical; min-height: 110px; border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; font: 500 13px/1.4 var(--body-font); color: var(--ink); }
 .modal textarea:focus { outline: 2px solid #229ED9; outline-offset: 0; border-color: #229ED9; }
 .modal .tg-send { background: #229ED9; }
@@ -748,6 +749,7 @@ html:has(.modal:target) { overflow: hidden; }
     <a class="x" href="#close" aria-label="Закрыть">&times;</a>
     <h3 id="m2-title">Позвоните, чтобы записаться</h3>
     <a class="phone-num" href="tel:+79178599538">8-917-859-95-38</a>
+    <button class="btn ghost copy-btn" type="button" id="copy-phone">Скопировать номер</button>
     <p class="fine">Время для связи: 8:00–21:00. Первое занятие — бесплатно.</p>
     <div class="actions">
       <a class="btn ghost" href="#contact">Назад</a>
@@ -831,6 +833,7 @@ html:has(.modal:target) { overflow: hidden; }
     var phone=form.elements.phone.value.trim();
     if(!name||!phone){setStatus('Укажите имя и контакт для связи','err');return}
 
+    var sent=false;
     btn.disabled=true;
     setStatus('Отправляем...','');
     var body=new URLSearchParams(new FormData(form));
@@ -846,14 +849,74 @@ html:has(.modal:target) { overflow: hidden; }
         return fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',body:body});
       })
       .then(function(){
+        sent=true;
+        try{sessionStorage.setItem('lead_ok','1')}catch(e){} // флаг: страница благодарности откроется только после заявки
         form.reset(); // очищаем форму
         window.location.href = 'spasibo.html'; // перенаправляем на страницу спасибо
       })
       .catch(function(){
         setStatus('Не удалось отправить. Позвоните по номеру 8-917-859-95-38.','err');
       })
-      .then(function(){btn.disabled=false});
+      .then(function(){if(!sent)btn.disabled=false});
   });
+})();
+</script>
+
+<script>
+// Цели Метрики для звонков:
+//   call_open  - открыли окно с номером («Позвонить»)
+//   phone_click - нажали на номер или «Набрать» (ссылка tel:)
+//   phone_copy - скопировали номер (кнопкой или выделением)
+(function(){
+  var PHONE='8-917-859-95-38', DIGITS='9178599538';
+  function goal(n){try{ym(113474784,'reachGoal',n)}catch(e){}}
+
+  var lastCopy=0;
+  function copyGoal(){
+    var t=Date.now();
+    if(t-lastCopy<3000)return;        // не считаем один и тот же акт копирования дважды
+    lastCopy=t;goal('phone_copy');
+  }
+
+  document.addEventListener('click',function(e){
+    var el=e.target.closest?e.target:e.target.parentNode;
+    if(!el||!el.closest)return;
+    if(el.closest('a[href^="tel:"]')){goal('phone_click');return}
+    if(el.closest('a[href="#phone"]')){goal('call_open');return}
+  });
+
+  // копирование выделенного номера (Ctrl+C / «Копировать»)
+  document.addEventListener('copy',function(){
+    try{
+      var sel=String(window.getSelection()).replace(/\D/g,'');
+      if(sel.indexOf(DIGITS)>-1)copyGoal();
+    }catch(e){}
+  });
+
+  // кнопка «Скопировать номер»
+  var btn=document.getElementById('copy-phone');
+  if(btn){
+    var label=btn.textContent;
+    function done(){
+      copyGoal();
+      btn.textContent='Номер скопирован ✓';
+      setTimeout(function(){btn.textContent=label},2000);
+    }
+    function fallback(){
+      var ta=document.createElement('textarea');
+      ta.value=PHONE;ta.setAttribute('readonly','');
+      ta.style.cssText='position:fixed;top:0;left:0;opacity:0';
+      document.body.appendChild(ta);ta.select();
+      var ok=false;try{ok=document.execCommand('copy')}catch(e){}
+      document.body.removeChild(ta);
+      if(ok)done();else{btn.textContent='Выделите номер и скопируйте';setTimeout(function(){btn.textContent=label},2500)}
+    }
+    btn.addEventListener('click',function(){
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(PHONE).then(done,fallback);
+      }else fallback();
+    });
+  }
 })();
 </script>
 
